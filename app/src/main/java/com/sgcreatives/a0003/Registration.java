@@ -40,6 +40,7 @@ public class Registration extends AppCompatActivity {
         already_have_account_layout = findViewById(R.id.already_have_account_text);
         register_card = findViewById(R.id.register_card);
         register_button = findViewById(R.id.register_button);
+        confirmpassword = findViewById(R.id.confirmpassword); // Add this line to initialize the confirmpassword EditText
         DB = new DBHelper(this);
         Animation top_curve_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.top_down);
         top_curve.startAnimation(top_curve_anim);
@@ -109,9 +110,5 @@ public class Registration extends AppCompatActivity {
                 }
             }
         });
-
-    }
-    public void registerButton(View view) {
-        Toast.makeText(this,"Register Clicked",Toast.LENGTH_SHORT).show();
     }
 }
