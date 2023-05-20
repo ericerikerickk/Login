@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +22,9 @@ public class Login extends AppCompatActivity {
     TextView logo;
     LinearLayout new_user_layout;
     CardView login_card;
+    DBHelper DB;
+
+    Button loginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +59,33 @@ public class Login extends AppCompatActivity {
         Animation new_user_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.down_top);
         new_user_layout.startAnimation(new_user_anim);
 
+        DB = new DBHelper(this);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = email.getText().toString();
+                String pass = password.getText().toString();
 
+                if(user.equals("") || pass.equals(""))
+                {
+                    Toast.makeText(Login.this, "Please input all the fields!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Boolean checkuserpass = DB.checkUsernamePassword(user, pass);
+                    if(checkuserpass == true)
+                    {
+                        Toast.makeText(Login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
+                        //Intent intent = new Intent(getApplicationContext(), Home.class);
+                        //startActivity(intent);
+                    }
+                    else
+                    {
+                        Toast.makeText(Login.this, "Invalid Credentials!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
     }
 
