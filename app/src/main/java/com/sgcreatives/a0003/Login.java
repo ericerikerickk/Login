@@ -17,83 +17,73 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
     ImageView top_curve;
-    EditText email,password;
+    EditText email, password;
     TextView email_text, password_text, login_title;
     TextView logo;
     LinearLayout new_user_layout;
     CardView login_card;
     DBHelper DB;
 
-    Button loginButton;
+    Button login_button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         top_curve = findViewById(R.id.top_curve);
-        email = findViewById(R.id.email);
-        email_text = findViewById(R.id.email_text);
-        password = findViewById(R.id.password);
-        password_text = findViewById(R.id.password_text);
+        email = findViewById(R.id.password);
+        email_text = findViewById(R.id.confirm_text);
+        password = findViewById(R.id.confirmpassword);
+        password_text = findViewById(R.id.conpassword_text);
         logo = findViewById(R.id.logo);
         login_title = findViewById(R.id.login_text);
         new_user_layout = findViewById(R.id.new_user_text);
         login_card = findViewById(R.id.login_card);
+        login_button = findViewById(R.id.login_button); // Initialize the login_button
 
-
-        Animation top_curve_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.top_down);
+        Animation top_curve_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.top_down);
         top_curve.startAnimation(top_curve_anim);
 
-        Animation editText_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.edittext_anim);
+        Animation editText_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.edittext_anim);
         email.startAnimation(editText_anim);
         password.startAnimation(editText_anim);
 
-        Animation field_name_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.field_name_anim);
+        Animation field_name_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.field_name_anim);
         email_text.startAnimation(field_name_anim);
         password_text.startAnimation(field_name_anim);
         logo.startAnimation(field_name_anim);
         login_title.startAnimation(field_name_anim);
 
-        Animation center_reveal_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.center_reveal_anim);
+        Animation center_reveal_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.center_reveal_anim);
         login_card.startAnimation(center_reveal_anim);
 
-        Animation new_user_anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.down_top);
+        Animation new_user_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.down_top);
         new_user_layout.startAnimation(new_user_anim);
 
         DB = new DBHelper(this);
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = email.getText().toString();
                 String pass = password.getText().toString();
 
-                if(user.equals("") || pass.equals(""))
-                {
+                if (user.equals("") || pass.equals("")) {
                     Toast.makeText(Login.this, "Please input all the fields!", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     Boolean checkuserpass = DB.checkUsernamePassword(user, pass);
-                    if(checkuserpass == true)
-                    {
+                    if (checkuserpass) {
                         Toast.makeText(Login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
                         //Intent intent = new Intent(getApplicationContext(), Home.class);
                         //startActivity(intent);
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(Login.this, "Invalid Credentials!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-
     }
 
     public void register(View view) {
-        startActivity(new Intent(this,Registration.class));
-    }
-
-    public void loginButton(View view) {
-        Toast.makeText(this,"Login Clicked",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, Registration.class));
     }
 }

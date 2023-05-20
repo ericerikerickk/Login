@@ -28,10 +28,10 @@ public class Registration extends AppCompatActivity {
         top_curve = findViewById(R.id.top_curve);
         name = findViewById(R.id.name);
         name_text = findViewById(R.id.name_text);
-        email = findViewById(R.id.email);
-        email_text = findViewById(R.id.email_text);
-        password = findViewById(R.id.password);
-        password_text = findViewById(R.id.password_text);
+        email = findViewById(R.id.password);
+        email_text = findViewById(R.id.confirm_text);
+        password = findViewById(R.id.confirmpassword);
+        password_text = findViewById(R.id.conpassword_text);
         logo = findViewById(R.id.logo);
         login_title = findViewById(R.id.registration_title);
         already_have_account_layout = findViewById(R.id.already_have_account_text);

@@ -90,16 +90,16 @@
                     android:paddingTop="8dp">
 
                     <TextView
-                        android:id="@+id/email_text"
+                        android:id="@+id/confirm_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email"
+                        android:text="Username"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/email"
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="15"
@@ -107,7 +107,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/password_text"
+                        android:id="@+id/conpassword_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -117,7 +117,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/password"
+                        android:id="@+id/confirmpassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="15"

@@ -101,37 +101,37 @@
                             android:id="@+id/name"
                             android:inputType="text"
                             android:ems="15"/>
+
                         <TextView
+                            android:id="@+id/confirm_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Email"
-                            android:id="@+id/email_text"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
+                            android:text="Password"
                             android:textColor="@color/grey"
-                            />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
-                            android:id="@+id/email"
+                            android:id="@+id/password"
                             android:inputType="textEmailAddress"
                             android:ems="15"/>
+
                         <TextView
+                            android:id="@+id/conpassword_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Password"
-                            android:id="@+id/password_text"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:textColor="@color/grey"
                             android:layout_gravity="left"
-                            />
+                            android:text="Confirm Password"
+                            android:textColor="@color/grey"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="8dp"
-                            android:id="@+id/password"
+                            android:id="@+id/confirmpassword"
                             android:ems="15"
                             android:inputType="textPassword"
                             android:textSize="16sp"/>
