@@ -85,15 +85,15 @@
                         android:orientation="vertical"
                         android:padding="16dp"
                         android:paddingTop="8dp">
+
                         <TextView
+                            android:id="@+id/name_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Name"
-                            android:id="@+id/name_text"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
+                            android:text="Username"
                             android:textColor="@color/grey"
-                            />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
